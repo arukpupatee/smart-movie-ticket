@@ -1,5 +1,5 @@
 {
-  "name": "test-node-serialport",
+  "name": "smart-movie-ticket",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -7,9 +7,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arukpupatee/smart-movie-ticket.git"
+  },
   "author": "ArukPupatee",
   "license": "ISC",
   "dependencies": {
+    "mysql": "^2.13.0",
     "serialport": "^4.0.7"
   }
 }

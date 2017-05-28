@@ -33,7 +33,7 @@ CREATE TABLE `customer` (
   `card_id` text,
   PRIMARY KEY (`id`),
   UNIQUE KEY `c_username_UNIQUE` (`c_username`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES (1,'admin','$2a$10$sdl.q1TXhlQPM.A87BM/XOikxWzs/MwDDjrcKGOQLRb2HV1iqXP7y','Chayanin','khaw','asddasdas','admin',NULL);
+INSERT INTO `customer` VALUES (1,'admin','$2a$10$sdl.q1TXhlQPM.A87BM/XOikxWzs/MwDDjrcKGOQLRb2HV1iqXP7y','Chayanin','khaw','asddasdas','admin',NULL),(8,'arukpupatee','123456','Aruk','Pupatee','aruk.pupatee@gmail.com','user','BB5A4A2B');
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -167,6 +167,7 @@ CREATE TABLE `shows` (
   `Movie_m_id` int(11) NOT NULL,
   `Hall_Theatre_theatre_id` varchar(45) NOT NULL,
   `Hall_hall_id` int(11) NOT NULL,
+  `showDate` date NOT NULL,
   PRIMARY KEY (`show_id`),
   KEY `fk_Show_Movie1_idx` (`Movie_m_id`),
   KEY `fk_Show_Hall1_idx` (`Hall_Theatre_theatre_id`,`Hall_hall_id`),
@@ -181,7 +182,7 @@ CREATE TABLE `shows` (
 
 LOCK TABLES `shows` WRITE;
 /*!40000 ALTER TABLE `shows` DISABLE KEYS */;
-INSERT INTO `shows` VALUES ('1','10:00:00','12:00:00','TH',1,'1',1),('2','13:00:00','15:00:00','TH',1,'1',1),('3','16:00:00','18:00:00','TH',2,'2',2),('4','20:00:00','22:00:00','ENG',9,'2',2);
+INSERT INTO `shows` VALUES ('1','10:00:00','12:00:00','TH',1,'1',1,'2017-05-28'),('2','13:00:00','15:00:00','TH',1,'1',1,'2017-05-28'),('3','16:00:00','18:00:00','TH',2,'2',2,'2017-05-28'),('4','20:00:00','22:00:00','ENG',9,'2',2,'2017-05-28');
 /*!40000 ALTER TABLE `shows` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -220,7 +221,6 @@ CREATE TABLE `tickets` (
   `ticket_no` int(11) NOT NULL,
   `price` int(11) NOT NULL,
   `show_date` date NOT NULL,
-  `show_id` varchar(45) NOT NULL,
   `Customer_id` int(10) unsigned NOT NULL,
   `Show_show_id` varchar(45) NOT NULL,
   `Seats_Hall_Theatre_theatre_id` varchar(45) NOT NULL,
@@ -242,6 +242,7 @@ CREATE TABLE `tickets` (
 
 LOCK TABLES `tickets` WRITE;
 /*!40000 ALTER TABLE `tickets` DISABLE KEYS */;
+INSERT INTO `tickets` VALUES (1,160,'2017-05-28',1,'1','1',1,'A1');
 /*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -254,4 +255,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-28 20:35:26
+-- Dump completed on 2017-05-28 23:32:58
